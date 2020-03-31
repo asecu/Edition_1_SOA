@@ -1,4 +1,4 @@
-package collections.store;
+package com.endava.store;
 
 public class Address {
     private String country;

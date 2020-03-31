@@ -1,32 +1,24 @@
-package collections.store;
+package com.endava.store;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class User {
+public abstract class AbstractUser {
     private static long idCounter = 0;
-    private long id;
-    private String userName;
+    private final long id;
     private Map<String, Address> address;
+    private final String name;
 
-    public User(String userName) {
+    protected AbstractUser(String name) {
         this.id = idCounter++;
-        this.userName = userName;
+        this.name = name;
         this.address = new HashMap<>();
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getName() {
+        return name;
     }
 
     public Map<String, Address> getAddress() {
@@ -45,9 +37,9 @@ public class User {
         this.address.remove(type);
     }
 
-    public static List<User> filerUsersByCity(List<User> userList, String city) {
-        List<User> result = new ArrayList<>();
-        for (User user : userList)
+    public static List<AbstractUser> filterByCity(List<AbstractUser> userList, String city) {
+        List<AbstractUser> result = new ArrayList<>();
+        for (AbstractUser user : userList)
             if (user.isFromCity(city))
                 result.add(user);
         return result;
@@ -63,9 +55,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "Id=" + id +
-                ", userName='" + userName + "'" +
+        return " User" +
+                "Id = " + id +
+                ", userName = " + name +
                 ", " + address.toString();
     }
 }
