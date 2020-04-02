@@ -1,4 +1,4 @@
-package dataCollectionTask.Models;
+package datacollectiontask.models;
 
 public enum Type {
   CLOTHES,
