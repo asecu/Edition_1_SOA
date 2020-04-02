@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 class Main {
     public static void main(String[] args) {
 
@@ -18,46 +19,54 @@ class Main {
         Map<String, Address> addressMapTwo = new HashMap();
         addressMapTwo.put("Home", new Address("Romania", "Bucurest", "Stefan cel Mare"));
 
-        User user1 = new User(1, "Daniel", addressMapOne);
-        User user2 = new User(2, "Egor", addressMapTwo);
+        User user1 = new User("Daniel", addressMapOne);
+        User user2 = new User("Egor", addressMapTwo);
 
-        List<User> usersList = new ArrayList<>();
+        AdminUser admin = new AdminUser("Vasile");
+        AdminUser admin2 = new AdminUser("Bob");
+
+        List<AbstractUser> usersList = new ArrayList<>();
         usersList.add(user1);
         usersList.add(user2);
 
         List<Item> itemList1 = new ArrayList<>();
-        Item item = new Item("telefon", Type.CLOTHES);
-        Item item1 = new Item("bike", Type.TOY);
+        Item item = new Item("telefon", Type.CLOTHES, 189.12);
+        Item item1 = new Item("bike", Type.GADGET, 150.65);
         itemList1.add(item);// add item to list
         itemList1.add(item1);
 
         List<Item> itemList2 = new ArrayList<>();
-        Item item2 = new Item("bear", Type.GADGET);
-        Item item3 = new Item("nexus", Type.TOY);
+        Item item2 = new Item("nexus", Type.TOY, 346.96);
+        Item item3 = new Item("nexus", Type.GADGET, 79.99);
+        Item item4 = new Item("iphone", Type.GADGET, 89.99);
         itemList2.add(item2);
         itemList2.add(item3);
+        itemList2.add(item4);
 
-        Order orderOne = new Order();
-        orderOne.setItems(itemList1);
-        orderOne.setUser(user1);
-        orderOne.getDate();
+        UserOrder userOrderOne = new UserOrder(itemList1, user1);
 
-        Order orderTwo = new Order();
-        orderTwo.setItems(itemList2);
-        orderTwo.setUser(user2);
-        orderTwo.getDate();
+        UserOrder userOrderTwo = new UserOrder(itemList2, user2);
 
-        List<Order> orderList = new ArrayList<>();
-        orderList.add(orderOne);
-        orderList.add(orderTwo);
+        admin.approveOrder(userOrderTwo);
+        admin2.rejectOrder(userOrderOne);
+
+        List<AbstractOrder> userOrderList = new ArrayList<>();
+        userOrderList.add(userOrderOne);
+        userOrderList.add(userOrderTwo);
 
         //Filter Orders by TOY, filterOrderByItemType(orderList)
-        List<Order> filteredOrderList = FilterByType.filterOrderByItemType((orderList));
-        System.out.println("the size of filtered order list is " + filteredOrderList.size());
+        List<AbstractOrder> filteredUserOrderList = UserOrder.filterOrdersByItemType(userOrderList, Type.TOY);
+        System.out.println("the size of filtered order list is " + filteredUserOrderList.size());
 
-        List<User> filteredListofUsers;
-        filteredListofUsers = FilterByCity.filterUsersByCity(usersList, "Chisinau"); // call for viewing the users from Chisinau city
-        System.out.println("The filtered list of users by city is " + filteredListofUsers.size());
 
+        List<AbstractUser> filteredListofUsers;
+        filteredListofUsers = AbstractUser.filterUsersByCity(usersList, "Chisinau"); // call for viewing the users from Chisinau city
+        System.out.println("The filtered list of users is " + filteredListofUsers.size());
+
+        System.out.println("Sum of order two is " + UserOrder.bigDecimal);
+        System.out.println("Count or order two is : " + userOrderTwo.count());
+        System.out.println("Date of order one is : " + userOrderOne.date());
+        System.out.println("nr iteme identice " + userOrderTwo.count(item3));
+        System.out.println("itemuri unice " + userOrderTwo.itemuriunice(item3, itemList2));
     }
 }
