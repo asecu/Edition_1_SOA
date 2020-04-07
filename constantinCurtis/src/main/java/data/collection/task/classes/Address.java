@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Address {
-    public String country;
-    public String city;
-    public String street;
+    private String country;
+    private String city;
+    private String street;
 
     public String getFullAddress() {
         List<String> addressList = new ArrayList<>();
@@ -20,6 +20,14 @@ public class Address {
         this.country = country;
         this.city = city;
         this.street = street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     @Override
