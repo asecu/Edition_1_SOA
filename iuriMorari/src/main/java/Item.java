@@ -12,9 +12,6 @@ public class Item {
         this.price = price;
     }
 
-    public Item(String boots, Type boots1, int i) {
-    }
-
     @Override
     public String toString() {
         return "Item{" +
@@ -23,5 +20,29 @@ public class Item {
                 ", type=" + type +
                 ", price=" + price +
                 '}';
+
+    }
+
+    public void permitedTax(Double price) {
+        if (price > 0)
+            this.price = price;
+        else
+            System.out.println("Error. Price cant be negative. Please reenter price.");
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 }
