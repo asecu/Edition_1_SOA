@@ -1,4 +1,4 @@
-package collections.store;
+package com.endava.store;
 
 public enum Type {
     CLOTHES,
