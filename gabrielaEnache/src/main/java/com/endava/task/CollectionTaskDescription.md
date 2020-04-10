@@ -15,7 +15,7 @@ Create 2 objects of Order type
 
 Create a method that will return only Orders containing item.type = "Clothes"
 
-i.e. List<Order> filterOrderByItemType(Order order);
+i.e. List<Order> filterOrderByItemType(Order userOrder);
 
 Create a method that will return list of users who's City is Chisinau
 
