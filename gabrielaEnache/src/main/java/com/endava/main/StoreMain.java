@@ -1,4 +1,4 @@
-package com.endava;
+package com.endava.main;
 
 import com.endava.store.AbstractOrder;
 import com.endava.store.Address;
@@ -17,7 +17,7 @@ import static com.endava.store.Type.FOOD;
 import static com.endava.store.Type.GADGET;
 import static com.endava.store.Type.TOY;
 
-public class Main {
+public class StoreMain {
     public static void main(String[] args) {
         Item dress = new Item("Dress", CLOTHES, 100.5f);
         Item bread = new Item("Bread", FOOD, 10f);
