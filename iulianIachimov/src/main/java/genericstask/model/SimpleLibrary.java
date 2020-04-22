@@ -48,34 +48,38 @@ public class SimpleLibrary {
     for (Books book : bookList) {
         System.out.println(book.getTitle() + " by " + book.getAuthor());
     }
-      System.out.println();
+    System.out.print("\n");
   }
 
   public void printVideos(List<Video> videoList) {
     for (Video video : videoList) {
         System.out.println(video.getTitle() + " from " + video.getSource());
     }
-      System.out.println();
+    System.out.print("\n");
   }
 
     public void printNewsPaper(List<Newspapers> newspaperList) {
-        for (Newspapers newsPaper : newspaperList) {
-            System.out.println(newsPaper.getTitle() + " in " + newsPaper.getLanguage());
-        }
-        System.out.println();
+      for (Newspapers newsPaper : newspaperList) {
+        System.out.println(newsPaper.getTitle() + " in " + newsPaper.getLanguage());
+      }
+      System.out.print("\n");
     }
 
-    public void sortBookByTitle() {
-        Collections.sort(bookList);
-    }
+  public void sortBookByTitle() {
+    Collections.sort(bookList);
+  }
 
-    public void printVideoTitleLowerCase() {
-        for (Video t1 : videoList) {
-            System.out.println(t1.getTitle().toLowerCase());
-        }
-    }
+  public void sortBookByTitleNew(List<Books> booklistnew) {
+    Collections.sort(booklistnew);
+  }
 
-    public String removeNewspaperByIndex(int index) {
-        return String.valueOf(newspaperList.remove(index));
+  public void printVideoTitleLowerCase() {
+    for (Video t1 : videoList) {
+      System.out.println(t1.getTitle().toLowerCase());
     }
+  }
+
+  public String removeNewspaperByIndex(int index) {
+    return String.valueOf(newspaperList.remove(index));
+  }
 }
