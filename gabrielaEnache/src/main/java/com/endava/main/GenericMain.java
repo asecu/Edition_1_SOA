@@ -26,7 +26,6 @@ public class GenericMain {
         System.out.println("Items cheaper than 100 are:\n" + genericLibrary.getItemsCheaperThan(100f));
         genericLibrary.addItem(book1);
         genericLibrary.removeItem(newspaper);
-        genericLibrary.removeMultipleItems(Arrays.asList(video, book));
         genericLibrary.sortByPrice();
         genericLibrary.sortByTitle();
         System.out.println(genericLibrary);
