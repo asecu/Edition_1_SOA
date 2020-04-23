@@ -11,6 +11,10 @@ public class Library {
         items = new ArrayList<>();
     }
 
+    public List<Media> getItems() {
+        return items;
+    }
+
     public void addItem(Media item) {
         this.items.add(item);
     }

@@ -6,10 +6,14 @@ import java.util.List;
 
 public class GenericLibrary<T extends Media> {
     private List<T> items;
-    private final int MEMORY_CAPACITY = 6;
+    private final int MEMORY_CAPACITY = 5;
 
     public GenericLibrary() {
         items = new ArrayList<>();
+    }
+
+    public List<T> getItems() {
+        return items;
     }
 
     public void addItem(T item) {
