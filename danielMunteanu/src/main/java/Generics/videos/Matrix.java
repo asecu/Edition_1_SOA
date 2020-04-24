@@ -22,4 +22,10 @@ public class Matrix implements Video {
     public LibraryItemType getType() {
         return LibraryItemType.VIDEO;
     }
+
+    @Override
+    public String toString() {
+        return "Item name: " + getName() + " from year " + getYear() + " with type " + getType();
+
+    }
 }
