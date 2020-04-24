@@ -2,20 +2,20 @@ package Generics.books;
 
 import Generics.LibraryItemType;
 
-public class Shogun implements Book {
+public class GameOfThrones implements Book {
     @Override
     public int getPages() {
-        return 100;
+        return 2369;
     }
 
     @Override
     public int getYear() {
-        return 1965;
+        return 2000;
     }
 
     @Override
     public String getName() {
-        return "Shogun";
+        return "Game of Thrones";
     }
 
     @Override
@@ -25,6 +25,6 @@ public class Shogun implements Book {
 
     @Override
     public String toString() {
-        return "pages: " + getPages() + " " + " year: " + getYear() + " title: " + getName() + " type " + getType();
+        return "GameOfThrones{}";
     }
 }

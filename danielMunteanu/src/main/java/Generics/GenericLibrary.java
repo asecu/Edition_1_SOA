@@ -43,4 +43,15 @@ public class GenericLibrary<T extends LibraryItem> {
         }
         System.out.println("No more" + " items in range of " + a + " - " + b + " where found.");
     }
+
+    public boolean printByYearBoolean(int a) {
+        for (int i = 0; i < items.size(); i++) {
+            final int year = items.get(i).getYear();
+            if (year == a) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
